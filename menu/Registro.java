@@ -13,16 +13,16 @@ import javax.swing.*;
 public class Registro extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
-	JLabel nombre, apellido, correo, contraseña,confi_contraseña, lblNewLabel;
-	JTextField jtnombre, jtapellido, jcorreo;
-	JPasswordField jcontraseña, jconfi_contraseña;
+	JLabel nombre, usuario, correo, contraseÃ±a,confi_contraseÃ±a, lblNewLabel;
+	JTextField jtnombre, jtusuario, jcorreo;
+	JPasswordField jcontraseÃ±a, jconfi_contraseÃ±a;
 	JButton registrar, regresar;
 	JSeparator separadorUp, separadorDown;
 	
-	private int xLabel = 29;
-	private int yLabel = 135;
-	private int xField = 100;
-	private int yField = 135;
+	private int xLabel = 150;
+	private int yLabel = 125;
+	private int xField = 150;
+	private int yField = 150;
 	
 	public Registro() {
 		this.setLayout(null);
@@ -32,14 +32,15 @@ public class Registro extends JPanel{
 
 	private void showRegistro() {
 		
-		lblNewLabel = new JLabel("REGISTRO", SwingConstants.CENTER);
+		
+		lblNewLabel = new JLabel("CREAR USUARIO", SwingConstants.CENTER);
 		lblNewLabel.setForeground(SystemColor.controlText);
-		lblNewLabel.setFont(new Font("SansSerif", Font.BOLD, 50));
-		lblNewLabel.setBounds(60, 45, 368, 44);
+		lblNewLabel.setFont(new Font("SansSerif", Font.BOLD, 42));
+		lblNewLabel.setBounds(55, 35, 368, 44);
 		this.add(lblNewLabel);
 		
 		separadorUp = new JSeparator();
-		separadorUp.setBounds(10, xLabel+85, 466, 2);
+		separadorUp.setBounds(10, xLabel-45, 466, 2);
 		this.add(separadorUp);
 		
 		nombre = new JLabel("Nombre:",SwingConstants.CENTER);
@@ -50,67 +51,61 @@ public class Registro extends JPanel{
 		
 		jtnombre = new JTextField();
 		jtnombre.setFont(new Font("Calisto MT", Font.BOLD, 15));
-		jtnombre.setBounds(xField, yField, 167, 20);
+		jtnombre.setBounds(xField, yField, 180, 20);
 		this.add(jtnombre);
 		
-		apellido = new JLabel("Apellido:",SwingConstants.CENTER);
-		apellido.setForeground(SystemColor.controlText);
-		apellido.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
-		apellido.setBounds(xLabel, yLabel+=35, 70, 20);
-		this.add(apellido);
+		usuario = new JLabel("Usuario:",SwingConstants.CENTER);
+		usuario.setForeground(SystemColor.controlText);
+		usuario.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
+		usuario.setBounds(xLabel, yLabel+=45, 70, 20);
+		this.add(usuario);
 		
-		jtapellido = new JTextField();
-		jtapellido.setFont(new Font("Calisto MT", Font.BOLD, 15));
-		jtapellido.setBounds(xField, yField+=35, 167, 20);
-		this.add(jtapellido);
+		jtusuario = new JTextField();
+		jtusuario.setFont(new Font("Calisto MT", Font.BOLD, 15));
+		jtusuario.setBounds(xField, yField+=45, 180, 20);
+		this.add(jtusuario);
 		
-		correo = new JLabel("Correo:",SwingConstants.CENTER);
+		correo = new JLabel("Email:",SwingConstants.CENTER);
 		correo.setForeground(SystemColor.controlText);
 		correo.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
-		correo.setBounds(xLabel+3, yLabel+=35, 70, 20);
+		correo.setBounds(xLabel-10, yLabel+=45, 70, 20);
 		this.add(correo);
 		
 		jcorreo = new JTextField();
 		jcorreo.setFont(new Font("Calisto MT", Font.BOLD, 15));
-		jcorreo.setBounds(xField, yField+=35, 167, 20);
+		jcorreo.setBounds(xField, yField+=45, 180, 20);
 		this.add(jcorreo);
 		
-		contraseña = new JLabel("Contraseña:",SwingConstants.LEFT);
-		contraseña.setForeground(SystemColor.controlText);
-		contraseña.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
-		contraseña.setBounds(xLabel, yLabel+=35, 110, 20);
-		this.add(contraseña);
+		contraseÃ±a = new JLabel("ContraseÃ±a:",SwingConstants.LEFT);
+		contraseÃ±a.setForeground(SystemColor.controlText);
+		contraseÃ±a.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
+		contraseÃ±a.setBounds(xLabel, yLabel+=45, 110, 20);
+		this.add(contraseÃ±a);
 		
-		jcontraseña = new JPasswordField();
-		jcontraseña.setFont(new Font("Calisto MT", Font.BOLD, 15));
-		jcontraseña.setBounds(xField+27, yField+=35, 167, 20);
-		this.add(jcontraseña);
+		jcontraseÃ±a = new JPasswordField();
+		jcontraseÃ±a.setFont(new Font("Calisto MT", Font.BOLD, 15));
+		jcontraseÃ±a.setBounds(xField, yField+=45, 180, 20);
+		this.add(jcontraseÃ±a);
 		
-		contraseña = new JLabel("Confirme su contraseña:",SwingConstants.LEFT);
-		contraseña.setForeground(SystemColor.controlText);
-		contraseña.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
-		contraseña.setBounds(xLabel, yLabel+=35, 190, 20);
-		this.add(contraseña);
+		confi_contraseÃ±a = new JLabel("Confirmar contraseÃ±a:",SwingConstants.LEFT);
+		confi_contraseÃ±a.setForeground(SystemColor.controlText);
+		confi_contraseÃ±a.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
+		confi_contraseÃ±a.setBounds(xLabel, yLabel+=45, 180, 20);
+		this.add(confi_contraseÃ±a);
 		
-		jcontraseña = new JPasswordField();
-		jcontraseña.setFont(new Font("Calisto MT", Font.BOLD, 15));
-		jcontraseña.setBounds(xField+122, yField+=35, 167, 20);
-		this.add(jcontraseña);
-		
-//		terminos = new JCheckBox("Acepta los terminos y condiciones.");
-//		terminos.setForeground(SystemColor.GRAY);
-//		terminos.setFont(new Font("Source Sans Pro", Font.BOLD, 13));
-//		terminos.setBounds(xLabel+75, yLabel+=35, 250, 20);
-//		this.add(terminos);
+		jconfi_contraseÃ±a = new JPasswordField();
+		jconfi_contraseÃ±a.setFont(new Font("Calisto MT", Font.BOLD, 15));
+		jconfi_contraseÃ±a.setBounds(xField, yField+=45, 180, 20);
+		this.add(jconfi_contraseÃ±a);
 		
 		separadorDown = new JSeparator();
-		separadorDown.setBounds(10, yLabel+40, 466, 2);
+		separadorDown.setBounds(10, yLabel+65, 466, 2);
 		this.add(separadorDown);
 		
 		
-		registrar = new JButton("Crar cuenta");
+		registrar = new JButton("Crar usuario");
 		registrar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		registrar.setBounds(xLabel+300, yLabel+70, 120, 30);
+		registrar.setBounds(xLabel+180, yLabel+85, 120, 30);
 		this.add(registrar);
 		
 		registrar.addActionListener(new ActionListener() {
@@ -118,9 +113,9 @@ public class Registro extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String name = nombre.getText();
-				String lastname = apellido.getText();
+				String lastname = usuario.getText();
 				String email = jcorreo.getText();
-				String pswrd = new String(jcontraseña.getPassword());
+				String pswrd = new String(jcontraseÃ±a.getPassword());
 				
 
 				FileWriter writer ;
@@ -130,7 +125,7 @@ public class Registro extends JPanel{
 					 
 					 PrintWriter linea = new PrintWriter(writer);
 					 
-					 linea.println(nombre+","+apellido+","+email+","+pswrd);  
+					 linea.println(nombre+","+usuario+","+email+","+pswrd);  
 					 
 					 linea.close();
 					 writer.close();
@@ -142,9 +137,9 @@ public class Registro extends JPanel{
 			}
 		});
 		
-		regresar = new JButton("Regresar");
+		regresar = new JButton("Cancelar");
 		regresar.setFont(new Font("Tahoma", Font.BOLD, 14));
-		regresar.setBounds(xLabel, yLabel+70, 120, 30);
+		regresar.setBounds(xLabel-120, yLabel+85, 120, 30);
 		this.add(regresar);
 		regresar.addActionListener(new ActionListener() {
 			

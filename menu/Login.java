@@ -12,6 +12,8 @@ import javax.swing.*;
 
 public class Login extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
+	
 	JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2;
 	JTextField textField;
 	JPasswordField passwordField;
@@ -27,37 +29,37 @@ public class Login extends JPanel{
 	}
 	private void showLogin() {
 		
-		lblNewLabel = new JLabel("USER LOGIN");
+		lblNewLabel = new JLabel("ACCEDER");
 		lblNewLabel.setForeground(SystemColor.controlText);
 		lblNewLabel.setFont(new Font("SansSerif", Font.BOLD, 50));
-		lblNewLabel.setBounds(82, 60, 368, 44);
+		lblNewLabel.setBounds(120, 60, 368, 44);
 		this.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("USERNAME");
+		lblNewLabel_1 = new JLabel("Nombre de usuario");
 		lblNewLabel_1.setFont(new Font("SansSerif", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(41, 170, 92, 24);
+		lblNewLabel_1.setBounds(150, 170, 140, 24);
 		this.add(lblNewLabel_1);
 		
-		lblNewLabel_2 = new JLabel("PASSWORD");
+		lblNewLabel_2 = new JLabel("Contraseña de acceso");
 		lblNewLabel_2.setFont(new Font("SansSerif", Font.BOLD, 15));
-		lblNewLabel_2.setBounds(41, 220, 92, 31);
+		lblNewLabel_2.setBounds(150, 230, 170, 31);
 		this.add(lblNewLabel_2);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textField.setBounds(135, 175, 167, 20);
+		textField.setBounds(150, 200, 175, 25);
 		textField.setColumns(10);
 		this.add(textField);
 		
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Tahoma", Font.BOLD, 15));
-		passwordField.setBounds(135, 225, 167, 20);
+		passwordField.setBounds(150, 260, 175, 25);
 		this.add(passwordField);
 		
 		
-		btnExit = new JButton("EXIT");
-		btnExit.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnExit.setBounds(100, 300, 92, 31);
+		btnExit = new JButton("CANCELAR");
+		btnExit.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnExit.setBounds(50, 350, 132, 31);
 		this.add(btnExit);
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -66,9 +68,9 @@ public class Login extends JPanel{
 		});
 		
 		
-		btnLogin = new JButton("LOGIN");
-		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnLogin.setBounds(300, 300, 92, 31);
+		btnLogin = new JButton("INISIAR SESION");
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnLogin.setBounds(300, 350, 132, 31);
 		this.add(btnLogin);
 		btnLogin.addActionListener(new ActionListener() {
 			
@@ -118,7 +120,7 @@ public class Login extends JPanel{
 		this.add(separator);
 		
 		separator_1 = new JSeparator();
-		separator_1.setBounds(10, 270, 466, 2);
+		separator_1.setBounds(10, 310, 466, 2);
 		this.add(separator_1);
 		
 		this.repaint();
