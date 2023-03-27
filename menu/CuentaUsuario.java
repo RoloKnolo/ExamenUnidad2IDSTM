@@ -2,17 +2,16 @@ package menu;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.FileWriter;
 import java.io.*;
-
 import javax.swing.*;
 
-public class Registro extends JPanel{
+public class CuentaUsuario extends JPanel{
+	
 	private static final long serialVersionUID = 1L;
 	
-	JLabel nombre, usuario, correo, contraseña,confi_contraseña, lblNewLabel;
+	JLabel nombre, usuario, correo, contraseña, lblNewLabel;
 	JTextField jtnombre, jtusuario, jcorreo;
-	JPasswordField jcontraseña, jconfi_contraseña;
+	JPasswordField jcontraseña;
 	JButton registrar, regresar;
 	JSeparator separadorUp, separadorDown;
 	
@@ -21,17 +20,17 @@ public class Registro extends JPanel{
 	private int xField = 150;
 	private int yField = 150;
 	
-	public Registro() {
+	public CuentaUsuario() {
 		this.setLayout(null);
 		this.setVisible(true);
-		showRegistro();
+		showCuentaUsuario();
 	}
 
-	private void showRegistro() {
+	private void showCuentaUsuario() {
 		
-		lblNewLabel = new JLabel("CREAR USUARIO", SwingConstants.CENTER);
+		lblNewLabel = new JLabel("Mi CUENTA PERSONAL", SwingConstants.CENTER);
 		lblNewLabel.setForeground(SystemColor.controlText);
-		lblNewLabel.setFont(new Font("SansSerif", Font.BOLD, 42));
+		lblNewLabel.setFont(new Font("SansSerif", Font.BOLD, 32));
 		lblNewLabel.setBounds(55, 35, 368, 44);
 		this.add(lblNewLabel);
 		
@@ -83,24 +82,13 @@ public class Registro extends JPanel{
 		jcontraseña.setBounds(xField, yField+=45, 180, 20);
 		this.add(jcontraseña);
 		
-		confi_contraseña = new JLabel("Confirmar contraseña:",SwingConstants.LEFT);
-		confi_contraseña.setForeground(SystemColor.controlText);
-		confi_contraseña.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
-		confi_contraseña.setBounds(xLabel, yLabel+=45, 180, 20);
-		this.add(confi_contraseña);
-		
-		jconfi_contraseña = new JPasswordField();
-		jconfi_contraseña.setFont(new Font("Calisto MT", Font.BOLD, 15));
-		jconfi_contraseña.setBounds(xField, yField+=45, 180, 20);
-		this.add(jconfi_contraseña);
-		
 		separadorDown = new JSeparator();
 		separadorDown.setBounds(10, yLabel+65, 466, 2);
 		this.add(separadorDown);
 		
 		
-		registrar = new JButton("Crar usuario");
-		registrar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		registrar = new JButton("Actualizar");
+		registrar.setFont(new Font("Tahoma", Font.BOLD, 15));
 		registrar.setBounds(xLabel+180, yLabel+85, 120, 30);
 		this.add(registrar);
 		

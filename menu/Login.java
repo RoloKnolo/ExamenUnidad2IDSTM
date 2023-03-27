@@ -40,7 +40,7 @@ public class Login extends JPanel{
 		lblNewLabel_1.setBounds(150, 170, 140, 24);
 		this.add(lblNewLabel_1);
 		
-		lblNewLabel_2 = new JLabel("ContraseÃ±a de acceso");
+		lblNewLabel_2 = new JLabel("Contraseña de acceso");
 		lblNewLabel_2.setFont(new Font("SansSerif", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(150, 230, 170, 31);
 		this.add(lblNewLabel_2);

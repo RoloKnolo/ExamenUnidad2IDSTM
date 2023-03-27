@@ -10,6 +10,9 @@ public class Principal extends JFrame{
 	JScrollPane scrollPaneles;
 	JScrollPane scrollPaneljmb;
 	Jmb menuBar;
+	CuentaUsuario pnlCuentaUsuario;
+	HolaUsuario pnlHolaUsuario;
+	AyudaUsuario pnlAyudaUsuario;
 	
 	public Principal(){ 
 		
@@ -28,6 +31,9 @@ public class Principal extends JFrame{
 		pnlLogin = new Login();
 		pnlRegistro = new Registro();
 		menuBar = new Jmb();
+		pnlCuentaUsuario = new CuentaUsuario();
+		pnlHolaUsuario = new HolaUsuario();
+		pnlAyudaUsuario = new AyudaUsuario();
 		
 		scrollPaneles = new JScrollPane();
 		scrollPaneles.setBounds(0, 20, 500, 480);
@@ -40,7 +46,7 @@ public class Principal extends JFrame{
 		
 		definirPanelJmb(menuBar);
 		//Aqui llamas al panel que quieres mostrar primero en la ventana
-		definirPanel(pnlRegistro);
+		definirPanel(pnlAyudaUsuario);
 		
 		this.repaint();
 		this.revalidate();
@@ -56,5 +62,17 @@ public class Principal extends JFrame{
 	
 	private void definirPanel(Registro pnRegistro) {
 		scrollPaneles.setViewportView(pnRegistro);
+	}
+	
+	private void definirPanel(CuentaUsuario pnlCuentaUsuario) {
+		scrollPaneles.setViewportView(pnlCuentaUsuario);
+	}
+	
+	private void definirPanel(HolaUsuario pnlHolaUsuario) {
+		scrollPaneles.setViewportView(pnlHolaUsuario);
+	}
+	
+	private void definirPanel(AyudaUsuario pnlaAyudaUsuario) {
+		scrollPaneles.setViewportView(pnlaAyudaUsuario);
 	}
 }
