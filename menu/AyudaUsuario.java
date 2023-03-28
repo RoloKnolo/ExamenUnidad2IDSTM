@@ -3,6 +3,8 @@ package menu;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -12,19 +14,21 @@ public class AyudaUsuario extends JPanel{
 	
 	JLabel lblNewLabel, info;
 	JButton crearUsuario;
-	private String texto = "<html>1. Hacer click en la opción \"Usuarios\" en " + 
-			"el menú superior.<p>" + 
-			"2. Hacer click en la opción \"Crear " + 
-			"Usuario\" en el menú desplegado.<p>" + 
+	Principal principal;
+	private String texto = "<html>1. Hacer click en la opciï¿½n \"Usuarios\" en " + 
+			"el menï¿½ superior.<p>" + 
+			"2. Hacer click en la opciï¿½n \"Crear " + 
+			"Usuario\" en el menï¿½ desplegado.<p>" + 
 			"3. Llenar los campos solicitados.<p>" + 
-			"4. Escribri una pequeña descripción de ti.<p>" + 
+			"4. Escribri una pequeï¿½a descripciï¿½n de ti.<p>" + 
 			"5. Seleccionar tu comida favorita.<p>" + 
 			"6. Seleccionar tu color favorito.<p>" + 
-			"7. Hacer click en el botón \"Crear " + 
+			"7. Hacer click en el botï¿½n \"Crear " + 
 			"Usuario\".<p>" + 
 			"8. Listo, el usuario se ha creado.<html>";
 	
-	public AyudaUsuario() {
+	public AyudaUsuario(Principal p) {
+		principal = p;
 		this.setLayout(null);
 		this.setVisible(true);
 		showAyuda();
@@ -32,7 +36,7 @@ public class AyudaUsuario extends JPanel{
 
 	private void showAyuda() {
 		
-		lblNewLabel = new JLabel("¿COMO CREAR UN USUARIO?", SwingConstants.CENTER);
+		lblNewLabel = new JLabel("ï¿½COMO CREAR UN USUARIO?", SwingConstants.CENTER);
 		lblNewLabel.setForeground(SystemColor.controlText);
 		lblNewLabel.setFont(new Font("SansSerif", Font.BOLD, 28));
 		lblNewLabel.setBounds(30, 35, 415, 44);
@@ -50,5 +54,13 @@ public class AyudaUsuario extends JPanel{
 		crearUsuario.setFont(new Font("Tahoma", Font.BOLD, 15));
 		crearUsuario.setBounds(130,370, 220, 30);
 		this.add(crearUsuario);
+		
+		crearUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				principal.setPanelAnterior(principal.Actual);
+				principal.definirPanel(principal.pnlRegistro);
+			}
+		});
+		
 	}
 }

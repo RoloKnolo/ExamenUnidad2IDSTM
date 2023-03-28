@@ -9,6 +9,7 @@ public class HolaUsuario extends JPanel{
 	private static final long serialVersionUID = 1L;
 	
 	JLabel lblNewLabel;
+	Principal principal;
 	private String usuario;
 	public HolaUsuario() {
 		this.setLayout(null);
@@ -17,7 +18,6 @@ public class HolaUsuario extends JPanel{
 	}
 
 	private void showHolaUsuario() {
-		
 		usuario = "<Usuario>";
 		lblNewLabel = new JLabel("Hola "+ usuario, SwingConstants.CENTER);
 		lblNewLabel.setForeground(SystemColor.controlText);

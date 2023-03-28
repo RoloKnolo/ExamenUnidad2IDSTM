@@ -9,11 +9,12 @@ public class CuentaUsuario extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
 	
-	JLabel nombre, usuario, correo, contraseña, lblNewLabel;
+	JLabel nombre, usuario, correo, contrasena, lblNewLabel;
 	JTextField jtnombre, jtusuario, jcorreo;
-	JPasswordField jcontraseña;
+	JPasswordField jcontrasena;
 	JButton registrar, regresar;
 	JSeparator separadorUp, separadorDown;
+	Principal principal;
 	
 	private int xLabel = 150;
 	private int yLabel = 125;
@@ -71,16 +72,16 @@ public class CuentaUsuario extends JPanel{
 		jcorreo.setBounds(xField, yField+=45, 180, 20);
 		this.add(jcorreo);
 		
-		contraseña = new JLabel("Contraseña:",SwingConstants.LEFT);
-		contraseña.setForeground(SystemColor.controlText);
-		contraseña.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
-		contraseña.setBounds(xLabel, yLabel+=45, 110, 20);
-		this.add(contraseña);
+		contrasena = new JLabel("contrasena:",SwingConstants.LEFT);
+		contrasena.setForeground(SystemColor.controlText);
+		contrasena.setFont(new Font("Source Sans Pro", Font.BOLD, 16));
+		contrasena.setBounds(xLabel, yLabel+=45, 110, 20);
+		this.add(contrasena);
 		
-		jcontraseña = new JPasswordField();
-		jcontraseña.setFont(new Font("Calisto MT", Font.BOLD, 15));
-		jcontraseña.setBounds(xField, yField+=45, 180, 20);
-		this.add(jcontraseña);
+		jcontrasena = new JPasswordField();
+		jcontrasena.setFont(new Font("Calisto MT", Font.BOLD, 15));
+		jcontrasena.setBounds(xField, yField+=45, 180, 20);
+		this.add(jcontrasena);
 		
 		separadorDown = new JSeparator();
 		separadorDown.setBounds(10, yLabel+65, 466, 2);
@@ -99,21 +100,24 @@ public class CuentaUsuario extends JPanel{
 				String name = nombre.getText();
 				String lastname = usuario.getText();
 				String email = jcorreo.getText();
-				String pswrd = new String(jcontraseña.getPassword());
+				String pswrd = new String(jcontrasena.getPassword());
 				
 
-				FileWriter writer ;
-				
-				try {
-					 writer = new FileWriter("users.txt",true);
-					 
-					 PrintWriter linea = new PrintWriter(writer);
-					 
-					 linea.println(nombre+","+usuario+","+email+","+pswrd);  
-					 
-					 linea.close();
-					 writer.close();
-					
+				 try {
+		         
+		                FileReader lectorArchivo = new FileReader("registrosUsuarios.txt");
+		                BufferedReader bufferLector = new BufferedReader(lectorArchivo);
+
+		                StringBuilder contenidoArchivo = new StringBuilder();
+		                String lineaActual = bufferLector.readLine();
+		                while (lineaActual != null) {
+		                    contenidoArchivo.append(lineaActual);
+		                    contenidoArchivo.append(System.lineSeparator());
+		                    lineaActual = bufferLector.readLine();
+		                }
+
+		                bufferLector.close();
+		                lectorArchivo.close();
 				} catch (IOException e1) {
 					
 					e1.printStackTrace();
@@ -129,7 +133,10 @@ public class CuentaUsuario extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				{JPanel a = principal.Actual;
+				principal.definirPanel(principal.Anterior);
+				principal.setPanelAnterior(a);
+				}
 			}
 		});
 		this.repaint();

@@ -1,5 +1,7 @@
 package menu;
 
+import java.awt.event.ActionEvent;
+
 import javax.swing.*;
 
 public class Principal extends JFrame{
@@ -14,7 +16,7 @@ public class Principal extends JFrame{
 	HolaUsuario pnlHolaUsuario;
 	AyudaUsuario pnlAyudaUsuario;
 	Tabla_usuarios pnlTablaUsuarios;
-	MostrarImagen pnlMostrarImagen;
+	JPanel Anterior, Actual, inicio;
 	
 	public Principal(){ 
 		
@@ -30,18 +32,17 @@ public class Principal extends JFrame{
 	
 	private void mostrarComponentes() {
 		
-		pnlLogin = new Login();
-		pnlRegistro = new Registro();
-		menuBar = new Jmb();
+		pnlLogin = new Login(this);
+		pnlRegistro = new Registro(this);
+		menuBar = new Jmb(this);
 		pnlCuentaUsuario = new CuentaUsuario();
 		pnlHolaUsuario = new HolaUsuario();
-		pnlAyudaUsuario = new AyudaUsuario();
+		pnlAyudaUsuario = new AyudaUsuario(this);
 		pnlTablaUsuarios = new Tabla_usuarios();
-		pnlMostrarImagen = new MostrarImagen();
 		
 		scrollPaneles = new JScrollPane();
 		scrollPaneles.setBounds(0, 20, 500, 480);
-		
+
 		scrollPaneljmb = new JScrollPane();
 		scrollPaneljmb.setBounds(0, 0, 500, 22);
 		
@@ -50,41 +51,21 @@ public class Principal extends JFrame{
 		
 		definirPanelJmb(menuBar);
 		//Aqui llamas al panel que quieres mostrar primero en la ventana
-		definirPanel(pnlHolaUsuario);
+		definirPanel(pnlLogin);
 		
 		this.repaint();
 		this.revalidate();
 	}
 	
-	private void definirPanelJmb(Jmb jmb) {
+	
+	protected void definirPanelJmb(Jmb jmb) {
 		scrollPaneljmb.setViewportView(menuBar);
 	}
-	
-	private void definirPanel(Login pnLogin) {
-		scrollPaneles.setViewportView(pnLogin);
+	protected void definirPanel(JPanel pnlLogin) {
+		scrollPaneles.setViewportView(pnlLogin);
+		Actual = pnlLogin;
 	}
-	
-	private void definirPanel(Registro pnRegistro) {
-		scrollPaneles.setViewportView(pnRegistro);
-	}
-	
-	private void definirPanel(CuentaUsuario pnlCuentaUsuario) {
-		scrollPaneles.setViewportView(pnlCuentaUsuario);
-	}
-	
-	private void definirPanel(HolaUsuario pnlHolaUsuario) {
-		scrollPaneles.setViewportView(pnlHolaUsuario);
-	}
-	
-	private void definirPanel(AyudaUsuario pnlaAyudaUsuario) {
-		scrollPaneles.setViewportView(pnlaAyudaUsuario);
-	}
-	
-	private void definirPanel(Tabla_usuarios pnlTabla_usuarios) {
-		scrollPaneles.setViewportView(pnlTabla_usuarios);
-	}
-	
-	private void definirPanel(MostrarImagen pnlMostrarImagen) {
-		scrollPaneles.setViewportView(pnlMostrarImagen);
+	protected void setPanelAnterior(JPanel a) {
+		Anterior = a;
 	}
 }

@@ -19,9 +19,10 @@ public class Login extends JPanel{
 	JPasswordField passwordField;
 	JButton btnExit, btnNewButton, btnLogin;
 	JSeparator separator, separator_1;
+	Principal principal;
 	
-	public Login() {
-		 
+	public Login(Principal p) {
+		principal = p;
 		this.setLayout(null);
 		this.setVisible(true);
 		showLogin();
@@ -40,7 +41,7 @@ public class Login extends JPanel{
 		lblNewLabel_1.setBounds(150, 170, 140, 24);
 		this.add(lblNewLabel_1);
 		
-		lblNewLabel_2 = new JLabel("Contraseña de acceso");
+		lblNewLabel_2 = new JLabel("ContraseÃ±a de acceso");
 		lblNewLabel_2.setFont(new Font("SansSerif", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(150, 230, 170, 31);
 		this.add(lblNewLabel_2);
@@ -68,7 +69,7 @@ public class Login extends JPanel{
 		});
 		
 		
-		btnLogin = new JButton("INISIAR SESION");
+		btnLogin = new JButton("INICIAR SESION");
 		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnLogin.setBounds(300, 350, 132, 31);
 		this.add(btnLogin);
@@ -78,20 +79,18 @@ public class Login extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				String email = textField.getText();
 				String pswrd = new String(passwordField.getPassword());
-				BufferedReader reader;
 				
 				Boolean flag = false;
 				
 				try {
 
 					FileReader file = new FileReader("registrosUsuarios.txt");
-					reader = new BufferedReader(file);
-					
-					String line = reader.readLine();
-					
-					while(line != null) {
+					BufferedReader reader = new BufferedReader(file);
+
+		            String lineaActual = reader.readLine();
+		            while (lineaActual != null) {
 						
-						String data [] = line.split(",");
+						String data [] = lineaActual.split(",");
 						 
 						if( email.equals(data[2]) ) {
 							if( pswrd.equals(data[3]) ) {
@@ -99,12 +98,14 @@ public class Login extends JPanel{
 							}
 						} 
 						
-						line = reader.readLine();
+						reader.close();
+		                file.close();
 						
 					}
 					
 					if(flag) {
 						JOptionPane.showMessageDialog(null,"Correcto","Bienvenido al sistema", JOptionPane.INFORMATION_MESSAGE );
+						principal.definirPanel(principal.pnlHolaUsuario);
 					}else {
 						JOptionPane.showMessageDialog(null,"Error","Fuera Perro!", JOptionPane.ERROR_MESSAGE );
 					}

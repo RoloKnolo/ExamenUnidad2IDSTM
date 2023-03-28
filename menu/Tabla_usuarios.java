@@ -8,6 +8,7 @@ public class Tabla_usuarios extends JPanel{
 	
 	private static final long serialVersionUID = 1L;
 	
+	Principal principal;
 	JLabel lblNewLabel,editar;
 	JTable tablaUsuarios;
 	JSeparator separator;
