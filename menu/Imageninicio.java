@@ -1,7 +1,7 @@
 package menu;
 import javax.swing.*;
 
-public class inicio {
+public class Imageninicio{
 	 {
 
 	        JFrame frame = new JFrame();
